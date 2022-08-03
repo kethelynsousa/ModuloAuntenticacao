@@ -21,14 +21,15 @@ namespace ModuloAutenticacao.Desktop
 
         private void Form3_Load(object sender, EventArgs e)
         {
-           NivelDAO np = new NivelDAO();
-            MessageBox.Show(np.Pesquisar());
+            
+           
         }
 
         private void txtCadastrar_Click(object sender, EventArgs e)
         {
             NivelDAO nivel = new NivelDAO();
-            MessageBox.Show(nivel.Inserir(txtNomeK.Text));
+            MessageBox.Show(nivel.Inserir(txtNome.Text));
+            CarregarResponsabilidades();
 
         }
 
@@ -37,6 +38,13 @@ namespace ModuloAutenticacao.Desktop
 
 
         }
+        private void CarregarResponsabilidades()
+        {
+            NivelDAO nivelPesquisa = new NivelDAO();
+
+            dgvNivel.DataSource = nivelPesquisa.Pesquisar();
+        }
+
     }
 }
 

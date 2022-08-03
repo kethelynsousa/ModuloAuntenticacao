@@ -61,7 +61,7 @@
             // 
             this.btnCadastrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCadastrar.Location = new System.Drawing.Point(230, 133);
+            this.btnCadastrar.Location = new System.Drawing.Point(230, 123);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(201, 48);
             this.btnCadastrar.TabIndex = 2;
@@ -87,8 +87,8 @@
             // 
             this.dgvNivel.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvNivel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNivel.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dgvNivel.Location = new System.Drawing.Point(87, 209);
+            this.dgvNivel.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvNivel.Location = new System.Drawing.Point(87, 228);
             this.dgvNivel.Name = "dgvNivel";
             this.dgvNivel.Size = new System.Drawing.Size(495, 171);
             this.dgvNivel.TabIndex = 5;
