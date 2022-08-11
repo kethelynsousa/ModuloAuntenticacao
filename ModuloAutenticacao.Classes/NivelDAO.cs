@@ -12,7 +12,13 @@ using System.Threading.Tasks;
 namespace ModuloAutenticacao.Classes
 {
     public class NivelDAO
+        
+ 
+
     {
+        public string senai;
+        public int i;
+
         public string Inserir(string nome)
         {   //abrindo a conexão
             Conexao.MinhaInstancia.Open();
@@ -39,28 +45,57 @@ namespace ModuloAutenticacao.Classes
         }
         public DataTable Pesquisar()
         {
+
             Conexao.MinhaInstancia.Open();
             //Definindo o comando
             SqlCommand comando = Conexao.MinhaInstancia.CreateCommand();
             //Definindo o tipo de comando
             comando.CommandType = System.Data.CommandType.Text;
             //Definindo DML
-            comando.CommandText = "select * from Nivel";
-
-            //DataTable (banco de dados na memória)
+            comando.CommandText = "select * from Nivel";            
             DataTable dataTable = new DataTable();
             SqlDataReader reader = comando.ExecuteReader();
             dataTable.Load(reader);
             Conexao.MinhaInstancia.Close();
+            
+            
             return dataTable;
         }
-        public void Deletar()
+
+        public string Deletar(string nome)
         {
+            Conexao.MinhaInstancia.Open();
+
+            
+          
+        }
+
+        public DataTable PesquisarPorNome(string nome)
+        {
+
+            Conexao.MinhaInstancia.Open();
+            //Definindo o comando
+            SqlCommand comando = Conexao.MinhaInstancia.CreateCommand();
+            //Definindo o tipo de comando
+            comando.CommandType = System.Data.CommandType.Text;
+            //Definindo DML
+            comando.CommandText = "select * from Nivel where nome = @Nome";
+            comando.Parameters.AddWithValue("@Nome", nome);
+            DataTable dataTable = new DataTable();
+            SqlDataReader reader = comando.ExecuteReader();
+            dataTable.Load(reader);
+            Conexao.MinhaInstancia.Close();
+            
+
+            return dataTable;
 
         }
 
     }
 }
+
+
+
 
 
 
