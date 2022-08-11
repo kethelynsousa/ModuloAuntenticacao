@@ -38,8 +38,21 @@ namespace ModuloAutenticacao.Classes
             return "Dados inseridos com sucesso!";
 
         }
-        public void Atualizar()
+        public string Atualizar(string ID, string nome)
         {
+            Conexao.MinhaInstancia.Open();
+            Conexao.MinhaInstancia.Open();
+            SqlCommand comando = Conexao.MinhaInstancia.CreateCommand();
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = ("update Nivel set Nome=@Nome where codigo=@ID;");
+            comando.Parameters.AddWithValue("@ID", ID);
+            comando.Parameters.AddWithValue("@Nome", nome);
+            comando.ExecuteNonQuery();
+
+            Conexao.MinhaInstancia.Close();
+
+            return "Atualizado com Sucesso!";
+
 
 
         }
@@ -62,12 +75,17 @@ namespace ModuloAutenticacao.Classes
             return dataTable;
         }
 
-        public string Deletar(string nome)
+        public string Deletar(string ID)
         {
             Conexao.MinhaInstancia.Open();
+            SqlCommand comando = Conexao.MinhaInstancia.CreateCommand();
+            comando.CommandType = System.Data.CommandType.Text;
+            comando.CommandText = ("DELETE Nivel WHERE codigo=@ID;");
+            comando.Parameters.AddWithValue("@ID", ID);
+            comando.ExecuteNonQuery();
 
-            
-          
+            Conexao.MinhaInstancia.Close();
+            return "Deletado com Sucesso!";
         }
 
         public DataTable PesquisarPorNome(string nome)
